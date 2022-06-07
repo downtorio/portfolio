@@ -1,0 +1,100 @@
+@use '../globals' as *;
+@use '../1-config/mixins';
+
+/******************************
+        projects heading 
+/******************************/
+.projects-heading-transition {
+	&-enter {
+		@include mixins.slide-up-transition;
+	}
+
+	&-enter-active {
+		@include mixins.slide-up-transition-active(300ms, 100ms, 500ms, 100ms);
+	}
+
+	&-enter-done {
+		@include mixins.slide-up-transition-done;
+	}
+}
+
+/******************************
+           underline
+/******************************/
+.projects-underline-transition {
+	&-enter {
+		@include mixins.underline-transition;
+	}
+
+	&-enter-active {
+		@include mixins.underline-transition-active(300ms, 400ms);
+	}
+
+	&-enter-done {
+		@include mixins.underline-transition-done;
+	}
+}
+
+/******************************
+       filter list items
+/******************************/
+.filter-items-transition {
+	&-enter {
+		@include mixins.slide-up-transition;
+
+		&::before,
+		&::after {
+			width: 0;
+		}
+	}
+
+	&-enter-active {
+		@include mixins.slide-up-transition-active(300ms, 350ms, 500ms, 350ms);
+
+		&::before,
+		&::after {
+			transition: width 400ms $transition-timing 600ms;
+			width: 100%;
+		}
+	}
+
+	&-enter-done {
+		@include mixins.slide-up-transition-done;
+
+		&::before,
+		&::after {
+			width: 100%;
+		}
+	}
+}
+
+/******************************
+       thumbnail images
+/******************************/
+.thumbnail-transition {
+	&-appear,
+	&-enter {
+		@include mixins.slide-up-transition;
+	}
+
+	&-appear,
+	&-enter-active {
+			@include mixins.slide-up-transition-active(300ms, 200ms, 500ms, 200ms);
+	}
+
+	&-enter-done {
+		@include mixins.slide-up-transition-done;
+	}
+
+	&-exit {
+		@include mixins.slide-down-transition;
+	}
+
+	&-exit-active {
+		@include mixins.slide-down-transition-active(200ms, 0ms, 200ms, 0ms, 20px);
+	}
+
+	&-exit-done {
+		@include mixins.slide-down-transition-done;
+	}
+}

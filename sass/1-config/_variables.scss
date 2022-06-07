@@ -1,0 +1,37 @@
+// imports
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;0,900&display=swap');
+@font-face {
+	font-family: 'RedSky';
+	src: url('../../fonts/RedSky.eot'); /* IE9 Compat Modes */
+	src: url('../../fonts/RedSky.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+			 url('../../fonts/RedSky.woff2') format('woff2'), /* Modern Browsers */
+			 url('../../fonts/RedSky.ttf') format('truetype'); /* Safari, Android, iOS */
+	font-style: normal;
+	font-weight: normal;
+	text-rendering: optimizeLegibility;
+}
+
+// colors
+$aqua: #d4e2d4;
+$brown: #9e5d42;
+$dark: #45312d;
+$light: #fcf8e8;
+$peach: #ecb390;
+$salmon: #df7861;
+$tan: #C7A16B;
+
+// fonts
+$sans-serif: 'Lato', 'Helvetica', 'Arial', sans-serif;
+$script: 'RedSky', serif;
+
+// sizes
+$footer-padding-md: 0 7.5rem;  // correlate with #contact .wrapper padding
+$footer-padding-sm: 0 1.5rem;
+$menu-border-size: 2.5rem;
+$modal-min-height: 59.4rem;
+$scroll-line-height-def: 8.75rem;
+$scroll-line-height-md: 12.5rem;
+
+// transition
+$transition: all 0.6s cubic-bezier(.2,0,.05,1);
+$transition-timing: cubic-bezier(.2,0,.05,1);

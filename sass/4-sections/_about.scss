@@ -1,0 +1,294 @@
+@use '../globals' as *;
+@use '../1-config/mixins';
+
+#about {
+	background-color: $tan;
+	width: 100%;
+
+	.about-main-content {
+		position: relative;
+		width: inherit;
+	}
+
+	.about-header {
+		background: url('../../img/about-header-compressed.svg') no-repeat;
+		background-position: 50% 0%;
+		background-size: cover;
+		height: calc(100vw / 1.5);   // 1.5 derived from bg image's aspect ratio (2700x1800)
+		max-height: 53.1rem;				 // TOGGLE OFF - testing for dynamic 'bottom' position
+		position: relative;
+		overflow-y: hidden;
+		width: 100%;
+	}
+
+	.wrapper {
+		margin-top: 1.8rem;          // sync with lang+software's margin-top
+		min-height: 50.9rem;         // fixed height for About container before main content is mounted via CSSTransition
+		// overflow-y: visible;         // Skillsets heading peeks over .wrapper's top border
+		position: relative;
+		text-align: center;
+
+		@include atSmall {
+			min-height: 62.5rem;      
+		}
+		@include atMedium {
+			min-height: 75rem;
+		}
+	}
+}
+
+.about-content,
+.skillsets-content {
+	transform: translateY(-1.88rem);
+}
+
+.skillsets-content {
+	transform: translateY(-1.5rem);
+	
+	@include atSmall {
+		transform: translateY(-1.88rem);
+	}
+}
+
+.about-content-link,
+.skillsets-content-link {
+	background: none;
+	border: none;
+	color: $dark;
+	cursor: pointer;
+	display: inline-block;
+	font-size: 0.9rem;
+	font-weight: 300;
+	letter-spacing: 0.12em;
+	margin-top: 0.9rem;
+	padding: 1rem 3rem;
+	position: relative;
+	text-transform: uppercase;
+	transition: letter-spacing 300ms $transition-timing;
+	user-select: none;
+	z-index: 2;
+
+	@include atSmall {
+		font-size: 1rem;
+		margin-top: 2.12rem;
+	}
+
+	&:focus-visible {
+		@include mixins.btn-focus($dark, $tan);
+	}
+
+	&:focus,
+	&:focus-visible,
+	&:hover {
+		letter-spacing: 0.3em;
+		outline: none;
+		transition: letter-spacing 300ms $transition-timing;
+	}
+}
+
+span.arrow {
+	animation-iteration-count: infinite;
+	animation-timing-function: $transition-timing;
+	animation-duration: 3000ms;
+	color: $dark;
+	font-family: $sans-serif;
+	font-size: 1.3rem;
+	position: relative;
+	top: -1;
+
+	&.arrow-left {
+		animation-name: arrowLeft;
+		right: 0.19rem;
+	}
+	&.arrow-right {
+		animation-name: arrowRight;
+		left: 0.19rem;
+	}
+}
+
+
+/******************************
+           about me
+/******************************/
+.about-content {
+	position: relative;
+	width: 100%;
+	z-index: 2;
+
+	&.hide {
+		display: none;
+	}
+
+	&-heading {
+		color: $dark;
+		position: relative;
+		z-index: 3;
+	}
+
+	.about-underline-container {
+		display: inline-block;
+		left: 39vw;
+		// left: 50%;
+		height: 1.88rem;
+		position: relative;
+		top: -3.4rem;
+		// transform: scale(0.33) translateX(-18%);   // this works better but i think it's gonna mess up the transition
+		transform: scale(0.33);
+		transform-origin: left;
+		width: 25rem;
+		z-index: 2;
+		
+		@include atXSmall {
+			left: 3.4rem;
+			top: -3.7rem;
+			transform: scale(0.4);
+			transform-origin: center;
+		}
+		@include atSmall {
+			left: 5em;
+			top: -5.2rem;
+			transform: scale(0.6);
+		}
+	}
+
+	.about-underline-img {
+		background: url('../../img/underlines/underline-about.svg') no-repeat left center;
+		height: 100%;
+		object-fit: cover;
+	}
+
+	&-text-container {
+		margin-top: -2rem;
+	}
+
+	&-text {
+		color: $dark;
+		font-size: 0.95rem;
+		margin: 0.94rem auto;
+		width: 95%;
+
+		@include atSmall {
+			font-size: 1.1rem;
+			margin: 1.56rem auto;
+		}
+		@include atMedium {
+			font-size: 1.2rem;
+			width: 80%;
+		}
+		@include atLarge {
+			font-size: 1.4rem;
+			width: 90%;
+		}
+	}
+}
+
+
+/******************************
+           skillsets
+/******************************/
+.skillsets-content {
+	width: 100%;
+	z-index: 2;
+
+	&.hide {
+		display: none;
+	}
+
+	&-heading {
+		color: $dark;
+		font-family: $script;
+		position: relative;
+		z-index: 3;
+	}
+}
+
+.skillsets-underline-container {
+	height: 0.94rem;
+	left: 50%;
+	position: relative;
+	top: -3.2rem;
+	transform: scale(0.37) translateX(-35%);
+	transform-origin: left center;
+	width: 25.6rem;
+
+	@include atXSmall {
+		top: -3.65rem;
+		transform: scale(0.43) translateX(-35%);
+	}
+	@include atSmall {
+		transform: scale(0.6) translateX(-35%);
+		top: -5rem;
+	}
+
+	.skillsets-underline-img {
+		background: url('../../img/underlines/underline-skillsets.svg') no-repeat left center;
+		height: 100%;
+		object-fit: cover;
+	}
+}
+
+
+/******************************
+       illustrations bg
+/******************************/
+.about-bg-illustrations {
+	display: flex;
+	justify-content: space-between;
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+
+	@include atLarge {
+		// margin-top: -22rem;
+	}
+}
+
+.img-left-container,
+.img-right-container {
+	bottom: 0;
+	position: relative;
+	z-index: 1;
+}
+
+.img-left-container {
+	left: -0.125rem;
+	max-width: 50.25rem;
+	width: 49vw;
+
+	@include atMedium {
+		width: 48vw;
+	}
+	@include atLarge {
+		width: 42vw;
+	}
+}
+
+.img-right-container {
+	margin-top: auto;
+	max-width: 43.25rem;
+	right: 0;
+	width: 46vw;
+
+	@include atMedium {
+		width: 45vw;
+	}
+	@include atLarge {
+		width: 40vw;
+	}
+}
+
+
+/******************************
+          animations
+/******************************/
+@keyframes arrowLeft {
+	0%  { right: 0.19rem; }
+	25% { right: 0.63rem; }
+	50% { right: 0.19rem; }
+}
+
+@keyframes arrowRight {
+	0%  { left: 0.19rem; }
+	25% { left: 0.63rem; }
+	50% { left: 0.19rem; }
+}

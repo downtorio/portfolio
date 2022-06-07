@@ -1,0 +1,211 @@
+@use '../globals' as *;
+@use '../1-config/mixins';
+
+#projects {
+	background-color: $light;
+	padding: 4rem 0 7rem;
+	text-align: center;
+
+	@include atMedium {
+		padding: 6.25rem 0 9.38rem;
+	}
+
+	.wrapper {
+		min-height: 46.9rem;
+
+		@include atMedium {
+			width: 85%;  // prevent images from being flushed against menu borders
+		}
+	}
+
+	.projects-heading {
+		color: $dark;
+		position: relative;
+		z-index: 3;
+	}
+
+	.projects-underline-container {
+		display: inline-block;
+		height: 2.25rem;
+		left: 41.5vw;
+		position: relative;
+		top: -3.2rem;
+		transform: scale(0.27) rotate(-4deg);
+		transform-origin: left;
+		width: 23.13rem;
+		z-index: 2;
+
+		@include atXSmall {
+			left: 2.8rem;
+			top: -3.8rem;
+			transform: scale(0.33) rotate(-4deg);
+			transform-origin: center;
+		}
+		@include atSmall {
+			left: 3.75rem;
+			transform: scale(0.47) rotate(-4deg);
+			top: -5rem;
+		}
+		@include atMedium {
+			left: 4.4rem;
+			transform: scale(0.55) rotate(-4deg);
+		}
+	}
+
+	.projects-underline-img {
+		background: url('../../img/underlines/underline-projects.svg') no-repeat left center;
+		height: 100%;
+		object-fit: cover;
+		// width: 100%;
+	}
+}
+
+/******************************
+            filters
+/******************************/
+.filter-container {
+	margin: -2rem 0 1.8rem;
+	position: relative;
+	width: 100%;
+
+	@include atSmall {
+		margin: -1rem 0 1.8rem;
+	}
+}
+
+.filter-items {
+	align-items: center;
+	display: flex;
+	flex-wrap: wrap;
+	font-family: $sans-serif;
+	font-size: 0.9rem;
+	// font-weight: 700;
+	font-weight: 300;
+	justify-content: center;
+	list-style: none;
+	margin: 0;
+	padding-inline-start: 0rem;
+	padding: 0.7em 0;
+	position: relative;
+	text-transform: uppercase;
+
+	@include atSmall {
+		font-size: 1rem;
+		flex-wrap: nowrap;
+	}
+
+	&::before {
+		background-color: $dark;
+		content: '';
+		height: 1px;
+		left: 0;
+		position: absolute;
+		top: 0;
+		// width: 100%;  // control thru transition
+	}
+
+	&::after {
+		background-color: $dark;
+		bottom: 0;
+		content: '';
+		height: 1px;
+		left: 0;
+		position: absolute;
+		// width: 100%;
+	}
+
+	&-transition-group {       // CSSTransition div
+		display: flex;
+	}
+
+	.filter-item {
+		padding: 0 .2rem;
+	}
+
+	.filter-btn {
+		background: none;
+		border: none;
+		color: $dark;
+		cursor: pointer;
+		padding: .2rem 1rem;
+		transition: color $transition-timing 300ms;
+
+		@include atXSmall {
+			padding: .4rem 1.3rem
+		}
+		@include atSmall {
+			padding: .4rem 1.85rem;
+		}
+
+		&:hover {
+			color: $salmon;
+		}
+
+		&:focus {
+			color: $salmon;
+			outline: none;
+		}
+
+		&:focus-visible {
+			@include mixins.btn-focus($salmon, $light);
+		}
+
+		&.active {
+			color: $salmon;
+			transition: color $transition-timing 300ms;
+		}
+	}
+}
+
+/******************************
+            gallery
+/******************************/
+.projects-gallery {
+	display: grid;
+	grid-template-columns: repeat(1, 1fr);
+	gap: 1rem;
+
+	@include atSmall {
+		grid-template-columns: repeat(2, 1fr);
+	}
+	@include atLarge {
+		grid-template-columns: repeat(3, 1fr);
+	}
+
+	span {  // unwanted span element implemented - remove from display
+		display: none;  
+	}
+
+	&-thumbnail {
+		cursor: pointer;
+		width: 100%;
+	}
+}
+
+.projects-thumbnail-container {
+	aspect-ratio: 700/542;    // aspect ratio of thumbnail images
+	background: none;
+	border: none;
+	position: relative;
+	transition: box-shadow 100ms $transition-timing,
+							transform 300ms $transition-timing;
+	width: 100%;
+	// width: 700px;
+	// height: 542px;
+
+	> span {
+		position: static!important;  // unwanted span element implemented - don't want Image to use this as its relative parent
+	}
+
+	&:focus-visible {
+		box-shadow: 0 0 0 0.7rem $light,
+								0 0 0 0.9rem $salmon;
+		outline: none;
+		transform: scale(0.9);
+	}
+
+	&:active {
+		box-shadow: none;
+		transform: none;
+	}
+}

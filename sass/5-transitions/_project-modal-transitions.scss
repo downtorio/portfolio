@@ -1,0 +1,232 @@
+@use '../globals' as *;
+@use '../1-config/mixins';
+
+/******************************
+            modal
+/******************************/
+.project-modal-transition {
+	&-appear,
+	&-enter {
+		width: 0;
+
+		.close-icon,
+		.nav-arrows {
+			opacity: 0;
+		}
+
+		// .project-img {
+		// 	opacity: 0;
+		// 	top: 5rem;
+		// }
+	}
+
+	&-appear-active,
+	&-enter-active {
+		transition: width 500ms $transition-timing;
+		width: 100%;
+
+		.close-icon,
+		.nav-arrows {
+			opacity: 1;
+			transition: opacity 200ms $transition-timing 500ms;
+		}
+
+		// .project-img {
+		// 	opacity: 1;
+		// 	top: 0;
+		// 	transition: opacity 300ms $transition-timing,
+		// 							top 300ms $transition-timing;
+		// }
+	}
+
+	&-enter-done {
+		width: 100%;
+	}
+
+	&-exit {
+		width: 100%;
+
+		.close-icon,
+		.nav-arrows {
+			opacity: 1;
+		}
+
+		.project-img {
+			opacity: 1;
+			top: 0;
+		}
+	}
+
+	&-exit-active {
+		transition: width 500ms $transition-timing 500ms;
+		width: 0;
+
+		.close-icon,
+		.nav-arrows {
+			opacity: 0;
+			transition: opacity 200ms $transition-timing 200ms;
+		}
+
+		.project-img {
+			opacity: 0;
+			top: 5rem;
+			transition: opacity 300ms $transition-timing 200ms,
+									top 300ms $transition-timing 200ms;
+		}
+	}
+
+	&-exit-done {
+		width: 0;
+
+		.close-icon,
+		.nav-arrows {
+			opacity: 0;
+		}
+
+		.project-img {
+			opacity: 0;
+			top: 5rem;
+		}
+	}
+}
+
+/******************************
+             image
+/******************************/
+.modal-image-transition {
+	&-appear {
+		@include mixins.slide-up-transition(5rem);
+	}
+
+	&-appear-active {
+		@include mixins.slide-up-transition-active(200ms, 400ms, 400ms, 400ms);
+	}
+
+	&-enter {
+		position: absolute;
+		top: 0;
+		z-index: 3;
+
+		&.slide-left {
+			left: -100%;
+		}
+		&.slide-right {
+			right: -100%;
+		}
+	}
+
+	&-enter-active {
+		position: absolute;
+		top: 0;
+		z-index: 3;
+
+		&.slide-left {
+			left: 0;
+			transition: left 300ms $transition-timing 100ms;
+		}
+		&.slide-right {
+			right: 0;
+			transition: right 300ms $transition-timing 100ms;
+		}
+	}
+
+	&-enter-done {
+		position: absolute;
+		top: 0;
+		z-index: 3;
+
+		&.slide-left {
+			left: 0;
+		}
+		&.slide-right {
+			right: 0;
+		}
+	}
+
+	&-exit {
+		left: 100%;
+		position: absolute;
+		top: 0;
+		z-index: -1;
+	}
+
+	&-exit-active {
+		left: 100%;
+		position: absolute;
+		top: 0;
+		z-index: -1;
+	}
+
+	&-exit-done {
+		left: 100%;
+		position: absolute;
+		top: 0;
+		z-index: -1;
+	}
+}
+
+/******************************
+            showcase
+/******************************/
+.project-showcase-transition {
+	&-appear {
+		.project-heading {
+			width: 0;
+		}
+
+		.project-title,
+		.project-filters-list,
+		.project-img-count,
+		.project-caption,
+		.btn {
+			@include mixins.slide-up-transition(1.56rem);
+		}
+	}
+
+	&-appear-active {
+		.project-heading {
+			transition: width 300ms $transition-timing 400ms;
+			width: 100%;
+
+			.project-title,
+			.project-filters-list,
+			.project-img-count {
+				@include mixins.slide-up-transition-active(300ms, 700ms, 300ms, 700ms);
+			}
+		}
+
+		.project-caption {
+			@include mixins.slide-up-transition-active(300ms, 800ms, 300ms, 800ms);
+		}
+
+		.btn {
+			@include mixins.slide-up-transition-active(300ms, 900ms, 300ms, 900ms);
+		}
+	}
+
+	&-enter-done {
+		.project-heading {
+			width: 100%;
+		}
+
+		.project-title,
+		.project-filters-list,
+		.project-img-count,
+		.project-caption,
+		.btn {
+			@include mixins.slide-up-transition-done;
+		}
+	}
+
+	&-exit {
+		@include mixins.slide-down-transition;
+	}
+
+	&-exit-active {
+		@include mixins.slide-down-transition-active(200ms, 100ms, 300ms, 100ms, 80px);
+	}
+
+	&-exit-done {
+		@include mixins.slide-down-transition-done(80px);
+	}
+}

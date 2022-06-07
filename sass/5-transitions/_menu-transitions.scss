@@ -1,0 +1,203 @@
+@use '../globals' as *;
+@use '../1-config/mixins';
+
+/******************************
+      menu modal container
+/******************************/
+.menu-modal-transition {
+	&-enter {
+		width: 0;
+
+		.open-modal-socials {
+			@include mixins.slide-up-transition;
+		}
+	}
+
+	&-enter-active {
+		transition: width 800ms $transition-timing;
+		width: 100%;
+
+		.open-modal-socials {
+			@include mixins.slide-up-transition-active(200ms, 1000ms, 200ms, 1000ms);
+		}
+	}
+
+	&-enter-done {
+		width: 100%;
+
+		.open-modal-socials {
+			@include mixins.slide-up-transition-done;
+		}
+	}
+
+	&-exit {
+		width: 100%;
+
+		.menu-nav-item,
+		.open-modal-socials {
+			@include mixins.slide-down-transition;
+		}
+	}
+
+	&-exit-active {
+		transition: width 800ms $transition-timing 500ms;
+		width: 0;
+
+		.menu-nav-item {
+			@include mixins.slide-down-transition-active(200ms, 0ms, 300ms, 0ms);
+		}
+		.open-modal-socials {
+			@include mixins.slide-down-transition-active(0ms, 0ms, 0ms, 0ms);
+		}
+	}
+
+	&-exit-done {
+		width: 0;
+
+		.menu-nav-item,
+		.open-modal-socials {
+			@include mixins.slide-down-transition-done;
+		}
+	}
+}
+
+/******************************
+         socials icons
+/******************************/
+.social-icons-main-menu-transition {
+	&-exit {
+		opacity: 1;
+		right: 7px;
+	}
+
+	&-exit-active {
+		opacity: 0;
+		transition: opacity 200ms $transition-timing 0ms;
+		right: 7px;
+	}
+
+	&-exit-done {
+		opacity: 0;
+		right: 7px;
+	}
+}
+
+/******************************
+        modal bg images
+/******************************/
+.menu-modal-bg-laptop-transition {
+	&-appear {
+		opacity: 0;
+		top: -50vh;
+	}
+
+	&-appear-active {
+		opacity: 1;
+		top: 0;
+		transition: opacity 300ms $transition-timing 500ms,
+								top 550ms $transition-timing 500ms;
+	}
+
+	&-enter-done {
+		opacity: 1;
+		top: 0;
+	}
+
+	&-exit {
+		top: 0;
+	}
+
+	&-exit-active {
+		top: -100vh;
+		transition: top 550ms $transition-timing;
+	}
+
+	&-exit-done {
+		top: -100vh;
+	}
+}
+
+.menu-modal-bg-headphones-transition {
+	&-appear {
+		bottom: -100vh;
+		opacity: 0;
+	}
+
+	&-appear-active {
+		bottom: 0;
+		opacity: 1;
+		transition: bottom 550ms $transition-timing 650ms,
+								opacity 300ms $transition-timing 650ms;
+	}
+
+	&-enter-done {
+		bottom: 0;
+		opacity: 1;
+	}
+
+	&-exit {
+		bottom: 0;
+	}
+
+	&-exit-active {
+		bottom: -100vh;
+		transition: bottom 550ms $transition-timing 50ms;
+	}
+
+	&-exit-done {
+		bottom: -100vh;
+	}
+}
+
+/******************************
+         nav list items
+/******************************/
+.menu-list-item-transition {
+	&-appear {
+		opacity: 0;
+		position: relative;
+		top: 3.13rem;
+	}
+
+	&-appear-active {
+		opacity: 1;
+		position: relative;
+		top: 0;
+
+		&:nth-of-type(1) {
+			transition: opacity 350ms $transition-timing 700ms,
+									top 100ms $transition-timing 700ms;
+		}
+		&:nth-of-type(2) {
+			transition: opacity 350ms $transition-timing 800ms,
+									top 100ms $transition-timing 800ms;
+		}
+		&:nth-of-type(3) {
+			transition: opacity 350ms $transition-timing 900ms,
+									top 100ms $transition-timing 900ms;
+		}
+		&:nth-of-type(4) {
+			transition: opacity 350ms $transition-timing 1000ms,
+									top 100ms $transition-timing 1000ms;
+		}
+	}
+
+	&-enter-done {
+		opacity: 1;
+		position: relative;
+		top: 0;
+	}
+
+	&-exit {
+		opacity: 1;
+	}
+
+	&-exit-active {
+		opacity: 0.1;
+		transition: opacity 800ms $transition-timing;
+	}
+
+	&-exit-done {
+		opacity: 0;
+	}
+}

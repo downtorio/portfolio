@@ -1,0 +1,312 @@
+@use '../globals' as *;
+@use '../1-config/mixins';
+
+.project-modal {
+	background-color: $aqua;
+	height: 100%;
+	right: 0;
+	overflow-y: scroll;
+	position: fixed;
+	text-align: left;
+	top: 0;
+	width: 100%;
+	z-index: 10;
+
+	.close-icon {
+		background: transparent;
+		padding: 0;
+		border: none;
+		color: $dark;
+		cursor: pointer;
+		display: flex;
+		font-family: $sans-serif;
+		font-size: 1rem;
+		left: 8%;
+		position: absolute;
+		text-transform: uppercase;
+		top: 1.25rem;
+
+		&:focus-visible {
+			@include mixins.btn-focus($salmon, $aqua);
+		}
+
+		@include atSmall {
+			font-size: 1.05rem;
+			left: 10%;
+			// top: 8%;
+			top: 3.13rem;
+		}
+
+		.x {
+			transform: translateY(0.1rem);  // nudge down a bit
+			margin-right: 0.81rem;
+
+			@include atSmall {
+				margin-right: 1.25rem;
+			}
+		}
+
+		.close-text {
+			letter-spacing: 0.04rem;
+
+			@include atSmall {
+				letter-spacing: 0.1rem;
+			}
+		}
+	}
+
+	.wrapper {
+		height: auto;
+		overflow: visible;   // CHANGE
+	}
+}
+
+.project-modal-main-content {
+	margin: 4.38rem auto 3.13rem;
+	position: relative;
+	width: 93%;
+
+	@include atSmall {
+		margin: 6.25rem auto 4.38rem;
+		width: 85%;
+	}
+	@include atMedium {
+		width: 75%;
+	}
+}
+
+/******************************
+            arrows
+/******************************/
+.nav-arrows {
+	color: $dark;
+	display: flex;
+	font-family: $sans-serif;
+	font-size: 4rem;
+	font-weight: 100;
+	justify-content: space-between;
+	left: 50%;
+	margin-bottom: -0.5rem;           // offset .nav-arrow-container's vertical padding
+	position: relative;
+	top: -0.5em;
+	transform: translateX(-50%);
+	user-select: none;
+	width: 100%;
+
+	@include atSmall {
+		font-family: inherit;
+		position: absolute;
+		top: 25%;
+		width: 125%;
+	}
+
+	.nav-arrow-container {
+		background: transparent;
+		border: none;
+		cursor: pointer;
+		padding: 0.5rem 0;
+		transform: translateY(-0.5rem);  // offset vertical padding
+
+		&:focus-visible {
+			color: $salmon;
+			@include mixins.btn-focus($salmon, $aqua)
+		}
+
+		&.nav-arrow-left {
+			padding-right: 2.5rem;
+
+			@include atSmall {
+				padding-right: 0;
+			}
+		}
+
+		&.nav-arrow-right {
+			padding-left: 2.5rem;
+
+			@include atSmall {
+				padding-left: 0;
+			}
+		}
+	}
+
+	.arrow-icon {
+		display: none;
+		transform: none;
+		user-select: none;
+
+		@include atSmall {
+			display: block;
+		}
+		@include atMedium {
+			transform: scaleY(1.5);
+		}
+	}
+
+	.arrow-label {
+		color: rgba($dark, 0.8);
+		display: block;
+		font-size: 0.8rem;
+		font-weight: 200;
+		letter-spacing: 0.03rem;
+		text-transform: uppercase;
+		user-select: none;
+
+		@include atSmall {
+			display: none;
+		}
+	}
+}
+
+/******************************
+             image
+/******************************/
+.project-modal {
+	.image {
+		display: flex;       // for image transition sliding effect -- redo?
+		flex-direction: row-reverse;
+		flex-wrap: nowrap;
+		overflow: hidden;
+		position: relative;
+		top: 0;
+	}
+
+	.project-img-container {
+		aspect-ratio: 1000/774;
+		height: 100%;
+		position: relative;
+		width: 100%;
+	}
+	
+	.project-img {
+		align-self: flex-start;   // prevent images from stretching vertically
+		position: relative;
+		width: 100%;
+		flex-shrink: 0;
+		flex-grow: 0;
+	
+		&::after {   // not needed anymore
+			background-color: $salmon;
+			content: '';
+			display: block;
+			position: absolute;
+			width: 6.25rem;
+			height: 6.25rem;
+			z-index: 4;
+		}
+	}
+}
+
+/******************************
+            details
+/******************************/
+.project-modal {
+	.project-heading-top {
+		align-items: flex-start;
+		display: flex;
+		flex-direction: column;
+		gap: 0.2rem;
+		justify-content: space-between;
+
+		@include atMedium {
+			align-items: center;
+			flex-direction: row;
+			gap: 0;
+		}
+	}
+
+	.project-heading {
+		border-bottom: 1px solid $dark;
+		border-top: 1px solid $dark;
+		color: $dark;
+		font-family: $sans-serif;
+		margin: 1.56rem 0 3.13rem;
+		padding: 0.94rem 0;
+
+		@include atSmall {
+			margin: 1.56rem 0 1.88rem;
+		}
+		@include atMedium {
+			margin: 2.5rem 0 3.13rem;
+			padding: 1.56rem 0 0.94rem;
+		}
+	}
+
+	.project-title {
+		font-size: 1.5rem;
+		font-weight: 900;
+		letter-spacing: 0.1rem;
+		text-transform: uppercase;
+
+		@include atSmall {
+			letter-spacing: 0.13rem;
+		}
+		@include atMedium {
+			font-size: 1.7rem;
+			letter-spacing: 0.2rem;
+		}
+	}
+
+	.project-filters-list {
+		align-items: flex-start;
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.25rem;
+		list-style: none;
+		max-width: 100%;
+
+		@include atMedium {
+			gap: 0.3rem;
+		}
+
+		&-item {
+			// background-color: rgba($dark, 0.2);
+			background-color: #ADC2AD;
+			border-radius: 0.25rem;
+			color: #415241;
+			font-size: 0.75rem;
+			padding: 0.2rem 0.35rem;
+		}
+	}
+
+	.project-img-count {
+		margin-top: 1.56rem;
+
+		@include atSmall {
+			margin-top: 2.19rem;
+		}
+		@include atMedium {
+			margin-top: 3.13rem;
+		}
+	}
+
+	.project-caption {
+		color: $dark;
+		font-family: $sans-serif;
+
+		.caption-text {
+			font-size: 0.95rem;
+			letter-spacing: 0.03rem;
+			line-height: 2;
+			text-align: justify;
+			width: 100%;
+
+			@include atSmall {
+				font-size: 1rem;
+			}
+			@include atMedium {
+				font-size: 1.13rem;
+				letter-spacing: 0.04rem;
+				line-height: 2.3;
+			}
+		}
+	}
+
+	.btn {
+		display: inline-block;
+		margin-top: 2.5rem;
+
+		&:focus {
+			@include mixins.btn-focus($dark, $aqua);
+		}
+	}
+}

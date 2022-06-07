@@ -1,0 +1,227 @@
+@use '../globals' as *;
+
+/******************************
+       menu (modal closed)
+/******************************/
+.menu {
+	z-index: 5;
+
+	.menu-borders {
+		display: block;
+		height: 100%;
+		position: relative;
+		width: 100%;
+		z-index: 5;
+
+		.menu-border {
+			background-color: transparent;
+			position: fixed;
+
+			@include atMedium {
+				background-color: $aqua;
+			}
+		}
+
+		.border-top {
+			height: $menu-border-size;
+			left: 0;
+			top: 0;
+			width: 100%;
+		}
+
+		.border-left {
+			height: 100%;
+			left: 0;
+			top: 0;
+			width: $menu-border-size;
+		}
+
+		.border-right {
+			height: 100%;
+			right: 0;
+			top: 0;
+			width: $menu-border-size;
+		}
+
+		.border-bottom {
+			bottom: 0;
+			height: $menu-border-size;
+			left: 0;
+			width: 100%;
+		}
+
+		.menu-border {
+			display: none;
+
+			@include atMedium {
+				display: block;
+			}
+		}
+	}
+}
+
+/******************************
+            brand
+/******************************/
+.menu {
+	.brand {
+		color: $dark;
+		font-family: $sans-serif;
+		font-size: 0.81rem;
+		font-weight: 700;
+		letter-spacing: 0.05rem;
+		line-height: $menu-border-size;
+		margin-right: 5%;
+		opacity: 1;
+		overflow-x: hidden;
+		position: absolute;
+		right: 0%;                            // tidies up transition to open modal
+		text-transform: uppercase;
+		// transform: translateX(-50%);       // tidies up transition to open modal
+		transition: all 150ms $transition-timing 200ms;
+		top: 1.88rem;
+		width: auto;
+		z-index: 10;
+
+		@include atMedium {
+			margin-right: $menu-border-size;
+			// transform: translateX(-50%);   // for 'left' when SocialIcons aren't disabled
+			right: 0%;
+			transform: translateX(0%);
+			position: fixed;
+			top: 0;
+			// width: 100%;                   // for 'left' when SocialIcons aren't disabled
+			width: auto;
+		}
+
+		&-link {
+			color: inherit;
+			text-decoration: none;
+		}
+	}
+}
+
+/******************************
+          menu button
+/******************************/
+.menu-icon-btn {
+	align-items: center;
+	border: none;
+	cursor: pointer;
+	display: flex;
+	left: 4%;
+	position: fixed;
+	// right: 4%;
+	top: 2.69rem;
+	transform: none;
+	transition: $transition;
+	z-index: 10;
+
+	// menu btn focus on hamburger icon mode
+	&:focus-visible {
+		box-shadow: 0 0 0 3px $salmon,
+							0 0 0 5px $light;
+		outline: none;
+	}
+
+	// menu btn focus on aqua border mode
+	@include atMedium {
+		&:focus-visible {
+			box-shadow: 0 0 0 3px $aqua,
+								0 0 0 5px $salmon;
+			outline: none;
+		}
+	}
+
+	// burger icon background
+	background-color: $light;
+	border-radius: 90%;
+	padding: 0.94rem 0.75rem 0.88rem;
+	top: 2.5rem - 0.75rem;
+
+	@include atMedium {
+		background-color: transparent;
+		border-radius: 0;
+		left: 0;
+		padding: 0;
+		right: auto;
+		top: 50%;
+		transform: rotate(-90deg) translate(0, -130%);
+	}
+
+	.hamburger-icon {
+		display: flex;
+		flex-wrap: wrap;
+		height: 1.13rem;
+		justify-content: space-between;
+		width: 1.38rem;
+
+		.hamburger-line {
+			background-color: $dark;
+			// height: 3px;
+			height: 0.19rem;
+			transition: $transition;
+			width: 1.38rem;
+		}
+	}
+
+	.menu-text {
+		color: $dark;
+		display: none;
+		font-family: $sans-serif;
+		font-weight: 700;
+		font-size: 0.81rem;
+		letter-spacing: 0.08rem;
+		margin-left: 1.25rem;
+		text-transform: uppercase;
+
+		@include atMedium {
+			display: block;
+		}
+	}
+}
+
+/******************************
+         social icons
+/******************************/
+.menu {
+	.social-icons {
+		align-items: center;
+		display: none;
+		list-style: none;
+		top: 50%;
+		z-index: 10;   // check this
+
+		@include atMedium {
+			display: flex;
+		}
+		
+		&.main-menu-socials {
+			flex-direction: column;
+			position: fixed;
+			right: 1px;
+			transform: translateY(-50%);
+		}
+
+		.social-icon {
+			margin: 0.63rem 0;
+		}
+
+		.social-icon-svg {
+			cursor: pointer;
+			fill: $dark;
+			height: 0.81rem;
+			transition: $transition;
+			width: 0.81rem;
+
+			&:hover {
+				fill: $salmon;
+				transition: $transition;
+			}
+		}
+
+		.social-icon-link {
+			padding: 0.63rem 0.63rem;
+		}
+	}
+}

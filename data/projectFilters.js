@@ -1,0 +1,1 @@
+export const PROJECT_FILTERS = ['All', 'React', 'Angular', 'Vue', 'Node.js', 'JavaScript'];

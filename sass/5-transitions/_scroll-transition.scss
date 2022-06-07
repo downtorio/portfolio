@@ -1,0 +1,87 @@
+@use '../globals' as *;
+
+/******************************
+          scroll text
+/******************************/
+.scroll-text-transition {
+	&-appear,
+	&-enter {
+		bottom: -$scroll-line-height-md;    // sync with .scroll-line height
+	}
+
+	&-appear-active,
+	&-enter-active {
+		bottom: -3.75rem;
+	}
+
+	&-appear-active {
+		transition: bottom 500ms $transition-timing 1500ms;
+	}
+
+	&-enter-active {
+		transition: bottom 500ms $transition-timing 300ms;
+	}
+
+	&-enter-done {
+		bottom: -3.75rem;
+	}
+
+	&-exit {
+		opacity: 1;
+	}
+
+	&-exit-active {
+		transition: opacity 300ms $transition-timing;
+		opacity: 0;
+	}
+
+	&-exit-done {
+		opacity: 0;
+	}
+}
+
+/******************************
+          scroll line
+/******************************/
+.scroll-line-transition {
+	&-appear,
+	&-enter {
+		height: 0;
+	}
+
+	&-appear-active,
+	&-enter-active {
+		height: $scroll-line-height-def;
+		@include atMedium {
+			height: $scroll-line-height-md;
+		}
+	}
+
+	&-appear-active {
+		transition: height 300ms $transition-timing 1400ms;
+	}
+
+	&-enter-active {
+		transition: height 300ms $transition-timing 100ms;
+	}
+
+	&-enter-done {
+		height: $scroll-line-height-def;
+		@include atMedium {
+			height: $scroll-line-height-md;
+		}
+	}
+
+	&-exit {
+		opacity: 1;
+	}
+
+	&-exit-active {
+		transition: opacity 300ms $transition-timing;
+		opacity: 0;
+	}
+
+	&-exit-done {
+		opacity: 0;
+	}
+}

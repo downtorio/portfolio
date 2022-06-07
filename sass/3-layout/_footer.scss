@@ -1,0 +1,86 @@
+@use '../globals' as *;
+
+#footer {
+	background-color: $salmon;
+	color: $dark;
+	font-family: $sans-serif;
+	padding-bottom: 2rem;
+	position: relative;
+
+	@include atSmall {
+		padding-bottom: 4rem;
+	}
+	@include atMedium {
+		padding-bottom: 7.5rem;
+	}
+
+	.wrapper {
+		align-items: center;
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		text-align: center;
+
+		@include atSmall {
+			flex-direction: row;
+			text-align: left;
+		}
+		@include atSmall {
+			padding: $footer-padding-sm;
+		}
+		@include atMedium {
+			padding: $footer-padding-md;
+		}
+	}
+
+	.footer-copyright {
+		color: $dark;
+		font-size: 0.9rem;
+		font-weight: 700;
+		letter-spacing: 0.02rem;
+		line-height: 1.6;
+	}
+
+	.social-icons {
+		align-items: center;
+		display: flex;
+		list-style: none;
+		padding: 0;
+
+		.social-icon {
+			margin: 0 0.44rem;
+			padding: 0.5rem;
+
+			@include atSmall {
+				padding: 0.94rem;
+			}
+
+			&:last-of-type {
+				padding-right: 0;
+			}
+		}
+
+		.social-icon-svg {
+			cursor: pointer;
+			fill: $dark;
+			height: 1.13rem;
+			transition: $transition;
+			width: 1.13rem;
+
+			@include atMedium {
+				height: 1.25rem;
+				width: 1.25rem;
+			}
+
+			&:hover {
+				fill: $aqua;
+				transition: $transition;
+			}
+
+			&.icon-twitter {
+				position: relative;
+				top: 0.13rem;              // offset a bit to level with other footer icons
+			}
+		}
+	}
+}

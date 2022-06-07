@@ -1,0 +1,69 @@
+@use '../globals' as *;
+
+::-webkit-scrollbar {
+	width: 0.5rem;
+
+	&-track {
+		background: $aqua;
+	}
+
+	&-thumb {
+		background: $salmon;
+	}
+
+	&-thumb:hover {
+		background: $peach;
+	}
+}
+
+html {
+	scroll-behavior: smooth;
+}
+
+body {
+	background-color: $light;
+}
+
+.wrapper {
+	margin: 0 auto;
+	max-width: 69rem;
+	width: 90%;
+	overflow: hidden;
+
+	@include atSmall {
+		width: 85%;
+	}
+	@include atMedium {
+		width: 90%;
+	}
+}
+
+
+// TEXT
+.section-heading {
+	font-family: $script;
+	font-size: 5rem;
+
+	@include atXSmall {
+		font-size: 5.8rem;
+	}
+	@include atSmall {
+		font-size: 8.3rem;
+	}
+	@include atMedium {
+		font-size: 9rem;
+	}
+}
+
+.section-paragraph {
+	font-family: $sans-serif;
+	font-size: 1.4rem;
+	font-weight: 700;
+	letter-spacing: 0.05rem;
+	line-height: 1.7;
+
+	@include atSmall {
+		letter-spacing: 0.08rem;
+		line-height: 2;
+	}
+}

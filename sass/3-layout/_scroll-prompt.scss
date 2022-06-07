@@ -1,0 +1,77 @@
+@use '../globals' as *;
+
+.scroll-container {
+	bottom: 0;
+	left: 50%;
+	opacity: 1;
+	position: fixed;
+	right: auto;
+	z-index: 4;
+
+	&.dark {
+		cursor: pointer;
+		left: auto;
+		right: -0.63rem;
+		user-select: none;
+
+		@include atSmall {
+			right: 0;
+		}
+		@include atLarge {
+			right: 0.63rem;
+		}
+
+		.scroll-text {
+			bottom: 0;
+			color: $dark;
+			left: 0.63rem;
+			letter-spacing: 0.07rem;
+
+			@include atMedium {
+				bottom: -1.88rem;
+				left: -1.88rem;
+			}
+			@include atLarge {
+				left: -3.75rem;
+			}
+		}
+
+		.arrow {
+			display: inline;
+			margin-left: 0.63rem;
+		}
+
+		.scroll-line {
+			// background-color: $dark;
+			opacity: 0;
+		}
+	}
+}
+
+.scroll-text {
+	bottom: -3.75rem;
+	color: $salmon;
+	font-family: $sans-serif;
+	font-size: 0.8rem;
+	font-weight: 400;
+	left: -1.88rem;
+	letter-spacing: 0.1rem;
+	text-transform: lowercase;
+	transform: rotate(-90deg) translate(-50%, -50%);
+	position: relative;
+
+	.arrow {
+		display: none;
+	}
+}
+
+.scroll-line {
+	background-color: $salmon;
+	height: $scroll-line-height-def;
+	position: relative;
+	width: 1px;
+
+	@include atMedium {
+		height: $scroll-line-height-md;
+	}
+}

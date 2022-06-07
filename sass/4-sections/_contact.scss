@@ -1,0 +1,295 @@
+@use '../globals' as *;
+@use '../1-config/mixins';
+
+#contact {
+	background-color: $salmon;
+	padding: 4rem 0 4.375rem;
+	position: relative;
+
+	@include atMedium {
+		padding: 6.25rem 0 4.375rem;
+	}
+
+	.wrapper {
+		min-height: 33.125rem;
+		padding: 0;
+
+		@include atXSmall {
+			min-height: 40.625rem;
+		}
+		@include atSmall {
+			min-height: 45rem;
+			padding: $footer-padding-sm;
+		}
+		@include atMedium {
+			padding: $footer-padding-md;
+		}
+	}
+
+	.contact-header {
+		color: $dark;
+		text-align: center;
+
+		.underline-contact {
+			left: 1.25rem;
+			position: relative;
+			top: -3.125rem;
+			width: 15.44rem;
+		}
+
+		.underline-contact-container {
+			display: inline-block;
+			height: 3.81rem;
+			left: 27vw;
+			position: relative;
+			transform: scale(0.37);
+			transform-origin: left;
+			top: -3.15rem;
+			width: 25rem;
+			z-index: 5;
+
+			@include atXSmall {
+				left: 0.5em;
+				top: -3.375rem;
+				transform: scale(0.42);
+				transform-origin: center;
+			}
+			@include atSmall {
+				transform: scale(0.65);
+				top: -3.75rem;
+			}
+		}
+
+		.underline-contact-img {
+			background: url('../../img/underlines/underline-contact.svg') no-repeat left center;
+			height: 100%;
+			object-fit: cover;
+		}
+	}
+
+	.contact-heading {
+		font-size: 6rem;   // a little bigger than other headings
+		line-height: 1;  	 // bring underline closer
+
+		@include atXSmall {
+			font-size: 6.5rem;
+			line-height: 1.03;
+		}
+		@include atSmall {
+			font-size: 8.3rem;
+			line-height: 1.1;
+		}
+		@include atMedium {
+			font-size: 9rem;
+		}
+	}
+}
+
+.back-to-top-waypoint {
+	height: 1px;
+	position: absolute;
+	right: 0;
+	top: 105%;
+	width: 50%;
+	z-index: 5;
+
+	@include atSmall {
+		top: 70%;
+	}
+	@include atMedium {
+		top: 60%;
+	}
+}
+
+/******************************
+             form
+/******************************/
+.contact-form-container {
+	margin-top: -5.2rem;
+	width: 100%;
+
+	@include atSmall {
+		margin-top: -5.5rem;
+	}
+
+	form {
+		background-color: $dark;
+		display: flex;
+		flex-wrap: wrap;
+		font-family: $sans-serif;
+		font-weight: 700;
+		justify-content: space-between;
+		padding: 2.5rem 1.8rem;
+		position: relative;
+		text-align: left;
+
+		@include atSmall {
+			padding: 5rem 3.125rem 3.75rem;
+		}
+		@include atMedium {
+			padding: 6.25rem 5rem 3.75rem;
+		}
+	}
+
+	label {
+		color: $salmon;
+		display: block;
+		font-size: 0.9rem;
+		text-transform: uppercase;
+	}
+
+	.form-name-container,
+	.form-email-container {
+		margin-bottom: 3rem;
+		width: 100%;
+		position: relative;
+
+		@include atSmall {
+			margin-bottom: 3.75rem;
+		}
+		@include atMedium {
+			width: 42%;
+		}
+	}
+
+	.form-message-container {
+		flex-shrink: 0;
+		width: 100%;
+	}
+
+	.form-name,
+	.form-email,
+	.form-message {
+		background-color: transparent;
+		border: none;
+		border-bottom: 1px solid $light;
+		border-radius: 0;
+		color: $light;
+		line-height: 2;
+		outline: none;
+		padding: 0.3rem 0;
+		transition: $transition;
+		width: 100%;
+
+		@include atMedium {
+			padding: 0.8rem 0 0.4rem;
+		}
+
+		&:focus,
+		&.error {
+			border-bottom: 1px solid $salmon;
+			transition: $transition;
+		}
+
+		&.error {
+			color: $salmon;
+		}
+	}
+
+	.form-message {
+		resize: none;
+	}
+
+	.input-error-msg {
+		bottom: -1.5em;
+		color: $salmon;
+		left: 0;
+		font-size: 0.9em;
+		font-weight: 300;
+		letter-spacing: 0.02em;
+		position: absolute;
+		width: 100%;
+
+		@include atMedium {
+			bottom: -2em;
+		}
+	}
+
+	.contact-mail-status {
+		border-left-style: solid;
+		border-left-width: 0.31rem;
+		display: block;
+		font-style: italic;
+		font-weight: 300;
+		letter-spacing: 0.03em;
+		line-height: 1.4;
+		margin-top: 1.3em;
+		padding: 0.3em 0.3em 0.3em 1.3em;
+
+		&.success {
+			border-left-color: $aqua;
+			color: $aqua;
+		}
+
+		&.failed {
+			border-left-color: $salmon;
+			color: $salmon;
+		}
+	}
+
+	.form-btn {
+		margin-top: 3.75rem;
+
+		&:focus {
+			@include mixins.btn-focus($salmon, $dark);
+		}
+
+		&[disabled] {
+			background-color: transparent;
+			border: 1px solid $salmon;
+			color: $salmon;
+			cursor: default;
+
+			&::before {
+				background-color: transparent;
+			}
+		}
+	}
+}
+
+/******************************
+          success msg
+/******************************/
+.success-container {
+	background-color: $dark;
+	color: $light;
+	font-family: $sans-serif;
+	font-weight: 300;
+	margin: 0 auto;
+	min-height: 32.81rem;
+	position: relative;
+	text-align: center;
+
+	.success-content {
+		left: 50%;
+		position: absolute;
+		top: 50%;
+		transform: translate(-50%, -50%);
+	}
+
+	.success-heading {
+		color: $salmon;
+		font-size: 1.9rem;
+		font-weight: 900;
+		letter-spacing: 0.03em;
+		margin-bottom: 2em;
+		position: relative;
+
+		&::after {
+			background-color: $salmon;
+			bottom: -1em;
+			content: '';
+			height: .19rem;
+			left: 50%;
+			position: absolute;
+			transform: translateX(-50%);
+			width: 2.81rem;
+		}
+	}
+
+	p {
+		font-size: 1.15rem;
+		letter-spacing: 0.04em;
+		line-height: 1.5em;
+	}
+}

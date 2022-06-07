@@ -1,0 +1,135 @@
+@use '../globals' as *;
+@use '../1-config/mixins';
+
+/******************************
+        contact heading
+/******************************/
+.contact-heading-transition {
+	&-enter {
+		@include mixins.slide-up-transition;
+	}
+
+	&-enter-active {
+		@include mixins.slide-up-transition-active(300ms, 100ms, 500ms, 100ms);
+	}
+
+	&-enter-done {
+		@include mixins.slide-up-transition-done;
+	}
+}
+
+/******************************
+       heading underline
+/******************************/
+.contact-underline-transition {
+	&-enter {
+		@include mixins.underline-transition;
+	}
+
+	&-enter-active {
+		@include mixins.underline-transition-active(300ms, 700ms);
+	}
+
+	&-enter-done {
+		@include mixins.underline-transition-done;
+	}
+}
+
+/******************************
+         contact form
+/******************************/
+.contact-form-transition {
+	&-enter,
+	&-appear {
+		height: 0;
+		opacity: 0;
+	}
+
+	&-enter-active,
+	&-appear-active {
+		height: 33.75rem;
+		opacity: 1;
+		transition: height 600ms $transition-timing 400ms,
+								opacity 10ms $transition-timing 400ms;
+	}
+
+	&-enter-done {
+		height: auto;
+	}
+}
+
+/******************************
+          form input
+/******************************/
+.contact-input-transition {
+	&-appear {
+		@include mixins.slide-up-transition;
+	}
+
+	&-appear-active {
+		@include mixins.slide-up-transition-active(300ms, 700ms, 500ms, 700ms);
+	}
+
+	&-enter-done {
+		@include mixins.slide-up-transition-done;
+	}
+}
+
+/******************************
+         form textarea
+/******************************/
+.contact-textarea-transition {
+	&-appear {
+		@include mixins.slide-up-transition;
+	}
+
+	&-appear-active {
+		@include mixins.slide-up-transition-active(300ms, 800ms, 500ms, 800ms);
+	}
+
+	&-enter-done {
+		@include mixins.slide-up-transition-done;
+	}
+}
+
+.contact-button-transition {
+	&-appear {
+		@include mixins.slide-up-transition;
+	}
+
+	&-appear-active {
+		@include mixins.slide-up-transition-active(300ms, 900ms, 500ms, 900ms);
+	}
+
+	&-enter-done {
+		@include mixins.slide-up-transition-done;
+	}
+}
+
+/******************************
+        success message
+/******************************/
+.contact-success-msg-transition {
+	&-exit {
+		.success-content {
+			opacity: 1;
+			top: 50%;
+		}
+	}
+
+	&-exit-active {
+		.success-content {
+			opacity: 0;
+			top: 55%;
+			transition: opacity 200ms $transition-timing,
+									top 300ms $transition-timing;
+		}
+	}
+
+	&-exit-done {
+		.success-content {
+			opacity: 0;
+			top: 55%;
+		}
+	}
+}

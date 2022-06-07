@@ -1,0 +1,122 @@
+@use '../globals' as *;
+@use '../1-config/mixins';
+
+/******************************
+    main content container 
+	  (about me + skillsets)
+/******************************/
+.about-content-transition,
+.skillsets-content-transition {
+	&-enter {
+		@include mixins.slide-up-transition;
+	}
+
+	&-enter-active {
+		@include mixins.slide-up-transition-active(100ms, 500ms, 200ms, 500ms);
+	}
+
+	&-enter-done {
+		@include mixins.slide-up-transition-done;
+	}
+
+	&-exit {
+		@include mixins.slide-down-transition;
+		position: absolute;
+	}
+
+	&-exit-active {
+		@include mixins.slide-down-transition-active(200ms, 100ms, 200ms, 100ms);
+		position: absolute;
+	}
+
+	&-exit-done {
+		@include mixins.slide-down-transition-done;
+		position: relative;
+	}
+}
+
+/******************************
+         about heading 
+/******************************/
+.about-heading-transition {
+	&-appear,
+	&-enter {
+		@include mixins.slide-up-transition;
+	}
+
+	&-appear-active,
+	&-enter-active {
+		@include mixins.slide-up-transition-active(300ms, 100ms, 500ms, 100ms);
+	}
+
+	&-enter-done {
+		@include mixins.slide-up-transition-done;
+	}
+}
+
+/******************************
+           underline
+/******************************/
+.about-underline-transition {
+	&-enter {
+		@include mixins.underline-transition;
+	}
+
+	&-enter-active {
+		@include mixins.underline-transition-active(300ms, 400ms);
+	}
+
+	&-enter-done {
+		@include mixins.underline-transition-done;
+	}
+}
+
+/******************************
+      'about me' content
+/******************************/
+.about-content-transition {
+	&-enter {
+		@include mixins.slide-up-transition;
+	}
+
+	&-enter-active {
+		&:nth-of-type(1) {
+			@include mixins.slide-up-transition-active(200ms, 500ms, 300ms, 500ms);
+		}
+		&:nth-of-type(2) {
+			@include mixins.slide-up-transition-active(200ms, 650ms, 300ms, 650ms);
+		}
+		&:nth-of-type(3) {
+			@include mixins.slide-up-transition-active(200ms, 800ms, 300ms, 800ms);
+		}
+		&:nth-of-type(4) {
+			@include mixins.slide-up-transition-active(200ms, 950ms, 300ms, 950ms);
+		}
+		&:nth-of-type(5) {
+			@include mixins.slide-up-transition-active(200ms, 1050ms, 300ms, 1050ms);
+		}
+	}
+
+	&-enter-done {
+		@include mixins.slide-up-transition-done;
+	}
+}
+
+/******************************
+      'skillsets' content
+/******************************/
+.skillsets-underline-transition {
+	// &-appear,
+	&-enter {
+		@include mixins.underline-transition;
+	}
+
+	// &-appear-active,
+	&-enter-active {
+		@include mixins.underline-transition-active(300ms, 400ms);
+	}
+
+	&-enter-done {
+		@include mixins.underline-transition-done;
+	}
+}

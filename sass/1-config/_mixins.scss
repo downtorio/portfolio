@@ -1,0 +1,65 @@
+@use '../globals' as *;
+
+@mixin btn-focus($btn-color, $backdrop-color) {
+	box-shadow: 0 0 0 3px $backdrop-color,
+							0 0 0 5px $btn-color;
+	outline: none;
+}
+
+
+/*****************************
+        CSS TRANSITIONS
+/*****************************/
+@mixin slide-up-transition($top-position: 3.125rem) {
+	opacity: 0;
+	position: relative;
+	top: $top-position;
+}
+
+@mixin slide-up-transition-active($opacity-duration, $opacity-delay, $top-duration, $top-delay) {
+	opacity: 1;
+	position: relative;
+	top: 0;
+	transition: opacity $opacity-duration $transition-timing $opacity-delay,
+							top $top-duration $transition-timing $top-delay;
+}
+
+@mixin slide-up-transition-done {
+	opacity: 1;
+	position: relative;
+	top: 0;
+}
+
+@mixin slide-down-transition {
+	opacity: 1;
+	position: relative;
+	top: 0;
+}
+
+@mixin slide-down-transition-active($opacity-duration, $opacity-delay, $top-duration, $top-delay, $top-position: 3.125rem) {
+	opacity: 0;
+	position: relative;
+	top: $top-position;
+	transition: opacity $opacity-duration $transition-timing $opacity-delay,
+							top $top-duration $transition-timing $top-delay;
+}
+
+@mixin slide-down-transition-done($top-position: 50px) {
+	opacity: 0;
+	position: relative;
+	top: $top-position;
+}
+
+// UNDERLINES
+@mixin underline-transition {
+	width: 0%;
+}
+
+@mixin underline-transition-active($width-duration: 300ms, $width-delay: 0ms) {
+	transition: width $width-duration $transition-timing $width-delay;
+	width: 100%;
+}
+
+@mixin underline-transition-done {
+	width: 100%;
+}

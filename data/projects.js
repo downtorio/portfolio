@@ -17,7 +17,7 @@ export const PROJECTS = [
 	{
 		id: 3,
 		name: 'Emma\'s Blog',
-		description: `A fun side project, "Emma" is inspired by the Jane Austen novel of the same name. The concept was to take the events of the novel and narrate them in the form of first-person online blog posts, readable in both light mode and dark mode versions. With this project, I combined two of my passions — web development and literature — to create a blog with functioning CRUD (Create-Read-Update-Delete) operations. It's a fullstack project with a structured and accessible frontend layout and an equally structured backend configuration. The blog owner has the ability to create, update and delete blog posts right from the site itself with the aid of a RESTful API linked to a MongoDB database. Each blog post is viewable to all, but submitting and deleting comments are reserved for authenticated users.`,
+		description: `A fun side project, "Emma" is inspired by the Jane Austen novel of the same name. The concept was to take the events of the novel and narrate them in the form of first-person online blog posts, readable in both light mode and dark mode versions. With this project, I combined two of my passions — web development and literature — to create a blog with functioning CRUD (Create-Read-Update-Delete) operations. It's a fullstack project with a structured frontend layout and an equally structured backend configuration. The blog owner has the ability to create, update and delete blog posts directly from the site itself with the aid of a RESTful API linked to a MongoDB database. Each blog post is viewable to all, but submitting and deleting comments are reserved for authenticated users.`,
 		thumbnail: 'project4-thumbnail',
 		filters: ['HTML', 'CSS', 'Sass', 'Vue', 'Node.js', 'MongoDB', 'Authentication', 'REST APIs'],
 		images: [
@@ -31,7 +31,7 @@ export const PROJECTS = [
 	{
 		id: 4,
 		name: 'Bliss On Earth',
-		description: `Bliss on Earth is owned by April Hernandez, a certified Theta Healer. Her website advertises her certifications and services while also enlightening the user on the subject of Theta Healing®. Appointments may be booked by reaching out to April Hernandez through the contact details presented on her page, and service package may be purchased through the site itself via PayPal, utilizing the PayPal API to authenticate the user and process payments securely.`,
+		description: `Bliss on Earth is owned by April Hernandez, a certified Theta Healer. Her website advertises her certifications, services, and the history and benefits of Theta Healing®. Appointments may be booked by reaching out to April Hernandez through the contact details presented on her page, and service packages may be purchased through the site itself via PayPal, utilizing the PayPal API to authenticate the user and process payments securely.`,
 		thumbnail: 'project3-thumbnail',
 		filters: ['HTML', 'CSS', 'Sass', 'Angular', 'Node.js', 'PayPal API'],
 		images: [
@@ -41,14 +41,14 @@ export const PROJECTS = [
 			{ fileName: 'project3-03', alt: 'List of certifications, services and prices, with a PayPal button for services payment, and photos of a lotus flower and a burning incense' },
 			// { fileName: 'project3-04', alt: 'Section to book an appointment and view contact info, and ThetaHealing disclaimer' },
 		],
-		launchedSite: null
+		launchedSite: 'https://blissonearth.ca'
 	},
 	{
 		id: 2,
 		name: 'Photo Gallery',
-		description: `Photo Gallery is a gallery-structured template designed to showcase a collection of images. Adhering to mobile-first, repsonsive layouts, it utilizes an elegant design with straightforward navigation systems to ensure the focus lies primarily on the gallery's photos. Being an exclusively frontend project, the goal was to branch out from familiar frontend libraries and frameworks, and rely primarily on Vanilla JavaScript to implement engaging UX/UI.`,
+		description: `Photo Gallery is a gallery-structured page designed to showcase a collection of images. Adhering to a mobile-first and repsonsive layout, and implementing images optimized for a variety of viewport sizes, it features an elegant design with straightforward and accessible navigation systems. As a React project, it incorporates Redux to take care of global state management, Next.js to handle server-side rendering, and React Transition Group to assist in the implementation of engaging UX/UI.`,
 		thumbnail: 'project1-thumbnail',
-		filters: ['HTML', 'CSS', 'Sass', 'React', 'Next.js'],
+		filters: ['HTML', 'CSS', 'Sass', 'React', 'Redux', 'Next.js'],
 		images: [
 			// { fileName: 'project1-01', alt: 'Photo Gallery Site Landing Page' },
 			{ fileName: 'project1-05', alt: 'Laptop and phone mockups of Photo Gallery site\'s landing page' },

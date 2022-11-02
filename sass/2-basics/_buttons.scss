@@ -60,4 +60,12 @@
 		color: $dark;
 		transition: color 300ms $transition-timing;
 	}
+
+	&-outline {
+		color: $dark; 
+
+		&:before {
+			display: none;
+		}
+	}
 }

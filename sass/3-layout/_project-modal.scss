@@ -308,5 +308,9 @@
 		&:focus {
 			@include mixins.btn-focus($dark, $aqua);
 		}
+
+		&:first-of-type {
+			margin-right: 0.75rem;
+		}
 	}
 }

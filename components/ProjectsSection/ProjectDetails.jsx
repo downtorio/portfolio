@@ -26,6 +26,15 @@ const ProjectDetails = ({ project, currentImgIndex, slideLeft, slideRight }) => 
 			)
 	}
 
+	const renderRepoButton = () => {
+		return (project?.repoLink)
+			? (
+				<a href={ project.repoLink } className="btn btn-dark btn-dark-outline" target="_blank" rel="noreferrer" tabIndex={0}>
+					View Repo
+				</a>
+			) : null
+	}
+
 	const renderSiteButton = () => {
 		return (project?.launchedSite)
 			? (
@@ -64,6 +73,7 @@ const ProjectDetails = ({ project, currentImgIndex, slideLeft, slideRight }) => 
 				</p>
 			</div>
 			{ renderSiteButton() }
+			{ renderRepoButton() }
 		</div>
 	)
 }

@@ -43,7 +43,7 @@ export const PROJECTS = [
 			{ fileName: 'project5-04', alt: 'Camera Shop\'s Brand page showing a filter of brand names on the left sidebar panel and a gallery view of products on the right side' }
 		],
 		launchedSite: 'https://camera-shop-psi.vercel.app',
-		repoLink: null
+		repoLink: 'https://github.com/licalopez/camera-shop'
 	},
 	{
 		id: 4,

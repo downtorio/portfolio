@@ -6,13 +6,14 @@ export const PROJECTS = [
 		thumbnail: 'project2-thumbnail',
 		filters: ['HTML', 'CSS', 'Sass', 'JavaScript'],
 		images: [
-			{ fileName: 'project2-01', alt: 'LN Associates Inc. Home Page' },
+			{ fileName: 'project2-01', alt: 'LN Associattttes Inc. Home Page' },
 			{ fileName: 'project2-04', alt: 'Tablet and phone mockups of LN Associates Inc. About Page — featuring details about company team and company mission' },
 			// { fileName: 'project2-02', alt: 'LN Associates Inc. About Page - featuring details about company team and company mission' },
 			{ fileName: 'project2-03', alt: 'LN Associates Inc. Contact Page - showing business address, phone number, email, and location via Google Map' },
 			// { fileName: 'project2-04', alt: 'Tablet and phone mockups of LN Associates Inc. About Page' }
 		],
-		launchedSite: 'https://lnassociates.ca'
+		launchedSite: 'https://lnassociates.ca',
+		repoLink: null
 	},
 	{
 		id: 3,
@@ -26,7 +27,23 @@ export const PROJECTS = [
 			{ fileName: 'project4-03', alt: 'Edit Post page in dark mode, showing a form populated with a post\'s "Title", "Image URL" and "Body" fields' },
 			{ fileName: 'project4-04', alt: 'Tablet and phone mockups of the Emma\'s Blog Post show page. The tablet version is in dark mode, the phone version is in light mode.' }
 		],
-		launchedSite: null
+		launchedSite: null,
+		repoLink: null
+	},
+	{
+		id: 5,
+		name: 'Camera Shop',
+		description: `Camera Shop is a fullstack ecommerce application that relies on data management and APIs to process real online payments. The entire application is constructed using Next.js to render the frontend, fetch the required data, and handle payments through the backend. Working with relational data like brands, camera products, product images, and featured deals for specific products — as well as relying on features like Search fields and filter systems —, it was important to set up a structured schema and manage the data in an organized manner, which was conducted with Sanity.io. Payments are made through a custom backend API and processed by the payment platform, Stripe. The application's layout is completely responsive and accessibility-friendly, ensuring total ease of use for all consumers.`,
+		thumbnail: 'project5-thumbnail',
+		filters: ['HTML', 'CSS', 'Sass', 'React', 'Node.js', 'Next.js', 'Sanity.io', 'APIs'],
+		images: [
+			{ fileName: 'project5-01', alt: 'Camera Shop\'s Home page showing a navbar, a large Hero banner and a gallery of best selling products' },
+			{ fileName: 'project5-02', alt: 'Camera Shop\'s Product show page displaying thumbnail images, price and description of the camera product, along with buttons to "Add to Cart" or "Buy Now"' },
+			{ fileName: 'project5-03', alt: 'Laptop and phone mockups of the Camera Shop\'s Cart modal' },
+			{ fileName: 'project5-04', alt: 'Camera Shop\'s Brand page showing a filter of brand names on the left sidebar panel and a gallery view of products on the right side' }
+		],
+		launchedSite: 'https://camera-shop-psi.vercel.app',
+		repoLink: null
 	},
 	{
 		id: 4,
@@ -41,7 +58,8 @@ export const PROJECTS = [
 			{ fileName: 'project3-03', alt: 'List of certifications, services and prices, with a PayPal button for services payment, and photos of a lotus flower and a burning incense' },
 			// { fileName: 'project3-04', alt: 'Section to book an appointment and view contact info, and ThetaHealing disclaimer' },
 		],
-		launchedSite: 'https://blissonearth.ca'
+		launchedSite: 'https://blissonearth.ca',
+		repoLink: null
 	},
 	{
 		id: 2,
@@ -57,6 +75,7 @@ export const PROJECTS = [
 			// { fileName: 'project1-04', alt: 'Full page menu - Contact section' },
 			{ fileName: 'project1-06', alt: 'Tablet mockup of image show page and phone mockup of contact modal' }
 		],
-		launchedSite: null
+		launchedSite: null,
+		repoLink: null
 	},
 ];

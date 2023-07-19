@@ -49,16 +49,19 @@ const ContactForm = ({ mailStatus, setMailStatus }) => {
 
 	const sendContactMail = async values => {
 		setIsSending(true)
-		// await axios.post('/api/send-mail', values)
 		axios.defaults.headers.post['Content-Type'] = 'application/json'
-		axios.post('https://formsubmit.co/ajax/licangel@msn.com', values)
-			.then(res => setMailStatus(res.data.mailStatus))
+		axios.post('https://formsubmit.co/ajax/e3a93e4757e2404ff837a92b6cf4f071', values)
+			.then(() => setMailStatus('success'))
 			.catch(error => {
 				console.error(JSON.stringify(error,null,2))
 				setMailStatus('failed')
 			})
 			.finally(() => setIsSending(false))
-		// setIsSending(false)
+		/* previous version with nodemailer
+			await axios.post('/api/send-mail', values)
+				.then(res => setMailStatus(res.data.mailStatus))
+			setIsSending(false)
+		 */
 	}
 	
 	return (
@@ -75,6 +78,8 @@ const ContactForm = ({ mailStatus, setMailStatus }) => {
 						<div id="formsubmit_features" className="hidden">
 							<input type="text" name="_honey" aria-label="Honeypot for spammers; please ignore" />
 							<input type="hidden" name="_captcha" value="false" />
+							<input type="hidden" name="_subject" value="✨ New Contact Email ✨" />
+							<input type="hidden" name="_template" value="box" />
 						</div>
 
 						{ /*isContactHeadingVisible &&*/ renderFormFields() }

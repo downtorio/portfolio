@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react'
+import { useContext, useRef, useState } from 'react'
 import { Form } from 'react-final-form'
 import axios from 'axios'
 
@@ -12,6 +12,7 @@ import { FORM_FIELDS } from '../../data/formFields'
 const ContactForm = ({ mailStatus, setMailStatus }) => {
 	const [isAnyModalOpen, _] = useContext(ModalContext)
 	const [isSending, setIsSending] = useState(false)
+	const formRef = useRef()
 
 	const generateEmailError = email => {
 		const errors = {}
@@ -48,10 +49,16 @@ const ContactForm = ({ mailStatus, setMailStatus }) => {
 
 	const sendContactMail = async values => {
 		setIsSending(true)
-		await axios.post('/api/send-mail', values)
+		// await axios.post('/api/send-mail', values)
+		axios.defaults.headers.post['Content-Type'] = 'application/json'
+		axios.post('https://formsubmit.co/ajax/licangel@msn.com', values)
 			.then(res => setMailStatus(res.data.mailStatus))
-			.catch(() => setMailStatus('failed'))
-		setIsSending(false)
+			.catch(error => {
+				console.error(JSON.stringify(error,null,2))
+				setMailStatus('failed')
+			})
+			.finally(() => setIsSending(false))
+		// setIsSending(false)
 	}
 	
 	return (
@@ -59,12 +66,17 @@ const ContactForm = ({ mailStatus, setMailStatus }) => {
 			onSubmit={ sendContactMail }
 			validate={ values => generateEmailError(values.email) }
 			validateOnBlur={ true }
-			render={({ handleSubmit, form}) => {
+			render={({ handleSubmit, form }) => {
 				if (mailStatus === 'success')
 					form.reset()
 				
 				return (
 					<form onSubmit={handleSubmit}>
+						<div id="formsubmit_features" className="hidden">
+							<input type="text" name="_honey" aria-label="Honeypot for spammers; please ignore" />
+							<input type="hidden" name="_captcha" value="false" />
+						</div>
+
 						{ /*isContactHeadingVisible &&*/ renderFormFields() }
 						{ (mailStatus === 'failed') && renderFailedMailStatus() }
 

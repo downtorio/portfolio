@@ -11,13 +11,14 @@ const InputField = ({ label, type }) => {
 
 	return (
 		<Field name={label}>
-			{ ({ input, meta }) => (
+			{({ input, meta }) => (
 				<div className={`form-${label}-container`} key={`${label}-input`}>
 					<label htmlFor={label}>{ label }</label>
 					<input
 						{...input}
 						className={`form-${label} ${ meta.error ? 'error' : ''}`}
 						id={ label }
+						name={ label }
 						type={ type }
 						tabIndex={ isAnyModalOpen ? -1 : 0 }
 						required

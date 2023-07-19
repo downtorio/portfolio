@@ -7,7 +7,7 @@ const Footer = () => {
 			<div className="wrapper">
 				<div className="footer-copyright-container">
 					<p className="footer-copyright">
-						&copy; 2022 Angelica Lopez
+						&copy; 2023 Angelica Lopez
 					</p>
 					{/* <p className="footer-copyright">
 						All rights reserved

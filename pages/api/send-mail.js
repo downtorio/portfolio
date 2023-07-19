@@ -1,3 +1,4 @@
+// switched to FormSubmit; don't need this anymore but leaving here for future ref
 const sendMail = require('../../services/nodemailer')
 
 export default async function handler(req, res) {
@@ -6,7 +7,7 @@ export default async function handler(req, res) {
 		await sendMail(senderName, senderEmail, message)
 			.then(() => res.status(200).send({ mailStatus: 'success' }))
 			.catch(error => {
-				console.error(error)
+				console.error(JSON.stringify(error, null, 2))
 				res.status(503).send({ mailStatus: 'failed' })
 			})
 	} else {

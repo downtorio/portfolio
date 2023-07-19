@@ -1,4 +1,5 @@
-const nodemailer=  require('nodemailer')
+// switched to FormSubmit; don't need this anymore but leaving here for future ref
+const nodemailer = require('nodemailer')
 const emailTemplate = require('./emailTemplate')
 
 // remember to catch() any errors after this method is called

@@ -4,7 +4,7 @@ export const PROJECTS = [
 		name: 'LN Associates Inc.',
 		description: `LN Associates Inc is a Canadian tax filing corporation that specializes in tax preparation and audit assistance. The goal for this website was to create a clean and minimal layout that reflected the company’s professionalism while maintaining visual simplicity that wouldn’t overwhelm the user. The general page styling was done with CSS and Sass incorporating a fully responsive layout, scripts were coded using Vanilla JavaScript, and all header images were photographed by myself and compressed to accommodate various viewport sizes.`,
 		thumbnail: 'project2-thumbnail',
-		filters: ['HTML', 'CSS', 'Sass', 'JavaScript'],
+		filters: ['HTML', 'CSS', 'Sass', 'JavaScript', 'React', 'TypeScript'],
 		images: [
 			{ fileName: 'project2-01', alt: 'LN Associattttes Inc. Home Page' },
 			{ fileName: 'project2-04', alt: 'Tablet and phone mockups of LN Associates Inc. About Page — featuring details about company team and company mission' },
@@ -50,7 +50,7 @@ export const PROJECTS = [
 		name: 'Bliss On Earth',
 		description: `Bliss on Earth is owned by April Hernandez, a certified Theta Healer. Her website advertises her certifications, services, and the history and benefits of Theta Healing®. Appointments may be booked by reaching out to April Hernandez through the contact details presented on her page, and service packages may be purchased through the site itself via PayPal, utilizing the PayPal API to authenticate the user and process payments securely.`,
 		thumbnail: 'project3-thumbnail',
-		filters: ['HTML', 'CSS', 'Sass', 'Angular', 'Node.js', 'PayPal API'],
+		filters: ['HTML', 'CSS', 'Sass', 'JavaScript', 'Vue', 'Node.js', 'PayPal API'],
 		images: [
 			{ fileName: 'project3-01', alt: 'Bliss on Earth landing page' },
 			{ fileName: 'project3-02', alt: 'Bliss on Earth about page, with "Get To Know Me" section and ThetaHealing disclaimer' },

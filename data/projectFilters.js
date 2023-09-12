@@ -1,1 +1,1 @@
-export const PROJECT_FILTERS = ['All', 'React', 'Angular', 'Vue', 'Node.js', 'JavaScript'];
+export const PROJECT_FILTERS = ['All', 'React', 'Vue', 'Node.js', 'JavaScript'];
